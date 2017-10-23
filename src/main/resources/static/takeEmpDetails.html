@@ -1,0 +1,14 @@
+<div align="center">
+	       	 <h2>Please Register Yourself</h2>
+	        	
+	        	Enter your Name:<input type="text" ng-model="name" id="name" style="width:200px" placeholder="Name" required autofocus>     	
+	        	<br/>
+	        	Enter your Designation:<input ng-model="designation" type="text" id="designation" style="width:200px;" placeholder="Designation" required>
+	        	<br/>
+	        	Enter your SAPID:<input type="text" ng-model="sapid" id="SAP" style="width:200px;" placeholder="SAPID" required>
+	        	<br/>
+	        		Name:{{name}} Designation:{{designation}} SAPID: {{sapid}}
+	        	<br/>
+	        	<button type="button" class="btn btn-primary" ng-click="toconsole(name,designation,sapid)">To Console Data</button>	
+	        	<button type="button" class="btn btn-primary" ng-click="submitData(name,designation,sapid)">Get Data</button>	
+</div>

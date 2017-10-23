@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+<meta charset="UTF-8">
+	<title>Ohelig Pojke</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	</head>
+<body ng-controller="myController" data-ng-init="fetchData()">
+<h2>Welcome To HCL!!!</h2>
+	<div class="container">       		
+	    <div class="alert alert-danger fade in" ng-show="checkUBRRPL">
+
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+
+        <strong>Error!</strong> A <a href="#" class="alert-link" >problem</a> has been occurred while submitting your data.
+
+    </div>
+        <div class="alert alert-warning fade in" ng-hide="checkUBRRPL">
+
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+
+        <strong>Warning!</strong> There was a problem with your <a href="#" class="alert-link">network connection</a>.
+
+    </div>
+    
+			Select View:
+			<select ng-model="takeinput">
+				<option value="login.html">Login</option>
+				<option value="tableInput.html">Table</option>
+				<option value="listInput.html">List</option>
+				<option value="showinputbutton.html">Button</option>
+				<option value="takeEmpDetails.html">Register Yourself</option>
+			</select>
+			<br/>
+		Type Hello:<input type="text" ng-model="inputtoAlert">
+		<button type="button" class="btn btn-success" ng-click="AngularAlert(inputtoAlert)">AlertButton</button>	
+		<div ng-include="takeinput"></div>
+		<button type="button" class="btn btn-success" ng-click="fetchData()">Success</button>
+		<button type="button" class="btn btn-success" ng-click="close()">Close Window</button>
+		<button type="button" class="btn btn-success" onclick="self.close()">Self Close</button>
+		
+	</div>
+	  <div class="container">
+  <h2>Alerts</h2>
+  
+  {{employees}}
+  Employee Name: {{employees.name}}
+  Data: {{data}}
+
+
+
+
+
+</div>
+<script src="js/angular.js"></script>
+<script src="js/Script.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+
+</body>
+</html>
