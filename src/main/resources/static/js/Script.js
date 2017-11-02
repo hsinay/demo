@@ -1,6 +1,6 @@
 ///<reference path="angular.js"/>
-var myApp = angular.module("myModule",['$modal']);
-myApp.controller("myController",function($scope,$http,$log,$window,$modal){
+var myApp = angular.module("myModule",[]);
+myApp.controller("myController",function($scope,$http,$log,$window,$rootScope){
 	$scope.message = "Hello Angular!!";
 	$scope.takeinput = "login.html";
 	
@@ -18,13 +18,14 @@ myApp.controller("myController",function($scope,$http,$log,$window,$modal){
 
 	    $scope.loadData();
 	
-	$scope.openPopUp = function () {
+/*	$scope.openPopUp = function () {
 	console.log('opening pop up');
 	var modalInstance = $modal.openPopUp({
 	templateUrl: 'popup.html',
 	controller: 'PopupCont',
-	});
-
+	})
+	};
+*/
 	var fetchData = function(){
 	$http.get("http://localhost:8081/employee/").then(function(response){
 	$scope.employees = response.data;
@@ -52,9 +53,7 @@ myApp.controller("myController",function($scope,$http,$log,$window,$modal){
 		$scope.error = response.data;
 		$log.info(response);
 	};
-	$scope.onclickPopUp = fucntion(){
-		$rootScope.$broadcast('app:error',{msg:'No Files found'});
-	};
+	
 	$scope.submitData = function(one,two,three){
 		var dataObjo={};
 		dataObjo.name=one;
@@ -72,7 +71,7 @@ myApp.controller("myController",function($scope,$http,$log,$window,$modal){
 		$http.post('http://localhost:8081/studentPostTest',toPostCall).then(successCallBack,errorCallBack);
 		console.log(dataObj.designation);
 	};
-		$scope.toneelam = function(one,two,three){
+		$scope.tomerge = function(one,two,three){
 		console.log("To Print"+ one);
 		var dataObj={};
 		for(var i in dataObj){
